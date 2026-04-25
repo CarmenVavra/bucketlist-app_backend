@@ -18,7 +18,7 @@ public class ActivityTakeawayController {
 
     private final ActivityTakeawayService activityTakeawayService;
 
-    public ActivityTakeawayController(ActivityTakeawayService activityTakeawayService, AuthenticationService authenticationService) {
+    public ActivityTakeawayController(ActivityTakeawayService activityTakeawayService) {
         this.activityTakeawayService = activityTakeawayService;
     }
 
