@@ -25,7 +25,6 @@ public class TakeawayService {
         }
     }
 
-    @GetMapping("/takeaway/user")
     public ResponseEntity<Iterable<Takeaway>> findAllTakeawayByUserId(Integer userId) {
         try {
             return new ResponseEntity<>(takeawayRepository.findByUserId(userId), HttpStatus.OK);
@@ -34,7 +33,6 @@ public class TakeawayService {
         }
     }
 
-    @PostMapping("/takeaway/create")
     public ResponseEntity<Takeaway> createTakeaway(Takeaway takeaway, Integer activityId) {
         try{
             Takeaway createdTakeaway = takeawayRepository.save(takeaway);
