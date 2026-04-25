@@ -10,56 +10,35 @@ import java.util.Optional;
 @RestController
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/user")
-    public ResponseEntity getById(@RequestParam(value = "userId") Integer userId) {
-        Optional<User> user = userRepository.findById(userId);
-
-        if (user.isPresent()) {
-            return new ResponseEntity<>(user.get(), HttpStatus.OK);
-        }
-
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<User> getById(@RequestParam(value = "userId") Integer userId) {
+        return userService.findUserById(userId);
     }
 
     @GetMapping("/user/all")
     public ResponseEntity<Iterable<User>> getAll() {
-        try {
-            return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
-        }catch (Exception e) {
-            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        return userService.findAllUser();
     }
 
     @PostMapping("/user")
     public  ResponseEntity<User> save(@RequestBody User user) {
-        try {
-            return new ResponseEntity<>(userRepository.save(user), HttpStatus.CREATED);
-        }catch (Exception e) {
-            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        return  userService.saveUser(user);
     }
 
     @PutMapping("/user")
     public ResponseEntity<User> update(@RequestBody User user) {
-        try {
-            userRepository.save(user);
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        }catch(Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        return  userService.updateUser(user);
     }
 
     @DeleteMapping("/user")
     public ResponseEntity<User> delete(@RequestParam(value = "id") Integer id) {
-        try {
-            userRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch(Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return userService.deleteUser(id);
     }
 
 }
