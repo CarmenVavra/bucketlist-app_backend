@@ -1,4 +1,4 @@
-package com.cartoni.bucketlist.model;
+package com.cartoni.bucketlist.models;
 
 import java.util.Date;
 

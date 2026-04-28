@@ -4,7 +4,7 @@ import com.cartoni.bucketlist.entities.ActivityTakeaway;
 import com.cartoni.bucketlist.repositories.ActivityTakeawayRepository;
 import com.cartoni.bucketlist.entities.Takeaway;
 import com.cartoni.bucketlist.repositories.TakeawayRepository;
-import com.cartoni.bucketlist.model.TakeawayWithChecked;
+import com.cartoni.bucketlist.models.TakeawayWithChecked;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

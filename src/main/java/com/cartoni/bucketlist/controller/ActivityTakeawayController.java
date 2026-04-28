@@ -2,7 +2,7 @@ package com.cartoni.bucketlist.controller;
 
 import com.cartoni.bucketlist.services.ActivityTakeawayService;
 import com.cartoni.bucketlist.entities.ActivityTakeaway;
-import com.cartoni.bucketlist.model.TakeawayWithChecked;
+import com.cartoni.bucketlist.models.TakeawayWithChecked;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
